@@ -1,4 +1,10 @@
 class MessagesController < ApplicationController
-  def create 
+  def index
+  end
+
+  def new
+  end
+
+  def create
   end
 end
