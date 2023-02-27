@@ -1,7 +1,9 @@
 class HitmenController < ApplicationController
   def index
+    @hitmen = Hitman.all
   end
 
-  def new
+  def show
+    @hitman = Hitman.find(params[:id])
   end
 end
