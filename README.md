@@ -1,1 +1,1 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Disrupting the Assassination market with a platform for assassins to take charge of their work. Empowering hitmen to go independent and grow a personal brand.
