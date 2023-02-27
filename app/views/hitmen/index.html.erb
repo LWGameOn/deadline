@@ -1,0 +1,11 @@
+
+<h1>hitmen</h1>
+<ul>
+    <% @hitmen.each do |hitman| %>
+      <li>
+         <%= hitman.name %>
+
+      </li>
+       <%= link_to "show hitman", hitman_path(hitman.id) %>
+    <% end %>
+  </ul>
