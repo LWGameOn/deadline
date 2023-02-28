@@ -5,6 +5,7 @@ class JobsController < ApplicationController
   end
 
   def show
+    @job = Job.find(params[:id])
     unless @job.user == current_user || @job.hitman.user == current_user
       # Job doesn't belong to current user
       redirect_to jobs_path, status: :bad_request
