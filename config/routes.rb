@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   # post '/hitmen/:hitman_id/jobs', to: 'jobs#create', as: 'jobs'
+
+  get '/jobs/requests', to: 'jobs#index_requests', as: 'requests'
+
   resources :hitmen, only: %i[index show] do
     resources :jobs, only: %i[new create]
   end
