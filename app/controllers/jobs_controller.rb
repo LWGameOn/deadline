@@ -1,12 +1,26 @@
 class JobsController < ApplicationController
-  before_action :set_job
+  before_action :set_hitman, only: %i[new create]
+  def index_requests
+    # Index requests the user has submitted
+    @jobs = Job.where(user: current_user)
+  end
 
   def index
-    @jobs = Job.all
+    # Index jobs the user's hitmen are assigned to
+    @hitmen = Hitman.where(user: current_user)
+    @jobs = []
+    @hitmen.each do |h|
+      @jobs.push(Jobs.where(hitman: h))
+    end
+    @jobs = @jobs.flatten
   end
 
   def show
     @job = Job.find(params[:id])
+    unless @job.user == current_user || @job.hitman.user == current_user
+      # Job doesn't belong to current user
+      redirect_to jobs_path, status: :bad_request
+    end
   end
 
   def new
@@ -15,32 +29,44 @@ class JobsController < ApplicationController
 
   def create
     @job = Job.new(job_params)
-    if @job.save
+    @job.user = current_user
+    @job.hitman_id = params[:hitman_id]
+    @hitman = Hitman.find(params[:hitman_id])
+    if @job.save!
       redirect_to job_path(@job)
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :bad_request
     end
   end
 
   def update
-    @job = Job.find(params[:id])
-    @job.update(job_params)
-    redirect_to job_path(@job)
+    if @job.user == current_user
+      @job.update(job_params)
+      redirect_to job_path(@job)
+    else
+      # Job doesn't belong to current user
+      @job = false
+      render :new, status: :bad_request
+    end
   end
 
   def destroy
-    @job = Job.find(params[:id])
-    @job.destroy
-    redirect_to jobs_path, status: :see_other
+    if current_user == @job.user
+      @job.destroy
+      redirect_to jobs_path, status: :see_other
+    else
+      # Job doesn't belong to current user
+      redirect_to jobs_path, status: :bad_request
+    end
   end
 
   private
 
   def job_params
-    params.require(:job).permit(:deadline, :details, :location)
+    params.require(:job).permit(:deadline, :details, :location, :price)
   end
 
-  def set_job
-    @job = Job.find(params[:id])
+  def set_hitman
+    @hitman = Hitman.find(params[:hitman_id])
   end
 end
