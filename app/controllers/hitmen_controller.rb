@@ -1,5 +1,5 @@
 class HitmenController < ApplicationController
-  before_action :set_hitman
+  before_action :set_hitman, only: :show
 
   def index
     @hitmen = Hitman.all
