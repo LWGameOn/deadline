@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  # post '/hitmen/:hitman_id/jobs', to: 'jobs#create', as: 'jobs'
   resources :hitmen, only: %i[index show] do
-    resources :jobs, only: %i[index show create update destroy] do
-      resources :messages, only: %i[index new create]
-    end
+    resources :jobs, only: %i[new create]
   end
+
+  resources :jobs, only: %i[index show update destroy edit]
 end
