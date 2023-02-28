@@ -1,0 +1,11 @@
+<h2>Add a job</h2>
+
+<%= simple_form_for [@hitman, @job] do |f| %>
+  <%= f.input :deadline, as: :date, html5: true %>
+  <%= f.input :details, as: :text %>
+  <%= f.input :location %>
+  <%= f.input :price %>
+  <br>
+  <br>
+  <%= f.submit "Add job", class: "btn btn-primary" %>
+<% end %>

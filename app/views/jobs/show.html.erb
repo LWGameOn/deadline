@@ -1,0 +1,6 @@
+<h1>Job</h1>
+<p>Needs to be carried out by: <%= @job.deadline %></p>
+<p>Name of hitman: <%= @job.hitman.name %></p>
+<p>Location: <%= @job.location %></p>
+<p>Price: <%= @job.price? ? @job.price : "Yet to be decided"%></p>
+<%= link_to "All hitmen", root_path %>
