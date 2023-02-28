@@ -43,12 +43,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_105414) do
   end
 
   create_table "hitmen", force: :cascade do |t|
-    t.string "name"
+    t.bigint "user_id", null: false
     t.string "method"
     t.text "bio"
     t.string "location"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.index ["user_id"], name: "index_hitmen_on_user_id"
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -63,12 +65,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_105414) do
     t.text "review"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
+    t.bigint "hitman_id", null: false
+    t.index ["hitman_id"], name: "index_jobs_on_hitman_id"
+    t.index ["user_id"], name: "index_jobs_on_user_id"
   end
 
   create_table "messages", force: :cascade do |t|
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "job_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["job_id"], name: "index_messages_on_job_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -85,4 +95,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_105414) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "hitmen", "users"
+  add_foreign_key "jobs", "hitmen"
+  add_foreign_key "jobs", "users"
+  add_foreign_key "messages", "jobs"
+  add_foreign_key "messages", "users"
 end
