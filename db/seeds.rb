@@ -13,7 +13,7 @@ end
     method: methods.sample,
     name: Faker::TvShows::RuPaul.queen,
     location: Faker::Address.community,
-    bio: Faker::Books::Lovecraft.sentences
+    bio: Faker::Books::Lovecraft.sentences.join(' ')
   ).save
 end
 
