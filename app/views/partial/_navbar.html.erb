@@ -9,15 +9,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto">
               <li class="nav-item active">
-                <a class="nav-link" href="<%= link_to root_path %>" >Home</a>
+                <%= link_to "Home", root_path, class:"nav-link" %>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="<%= link_to hitman_job_messages %>">Messages</a>
+                <%= link_to "Messages", root_path, class:"nav-link" %>
               </li>
               <li class="nav-item dropdown">
                 <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="<%= link_to hitman_jobs_path %>">Add a job</a>
+                  <%= link_to "Add a job", root_path, class:"nav-link" %>
                   <a class="dropdown-item" href="#">Another action</a>
                   <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
                 </div>
