@@ -1,12 +1,15 @@
 class JobsController < ApplicationController
-  before_action :set_job
+  before_action :set_job, except: [:create, :new]
 
   def index
-    @jobs = Job.all
+    @jobs = Job.where(user: current_user)
   end
 
   def show
-    @job = Job.find(params[:id])
+    unless @job.user == current_user || @job.hitman.user == current_user
+      # Job doesn't belong to current user
+      redirect_to jobs_path, status: :bad_request
+    end
   end
 
   def new
@@ -18,20 +21,29 @@ class JobsController < ApplicationController
     if @job.save
       redirect_to job_path(@job)
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :bad_request
     end
   end
 
   def update
-    @job = Job.find(params[:id])
-    @job.update(job_params)
-    redirect_to job_path(@job)
+    if @job.user == current_user
+      @job.update(job_params)
+      redirect_to job_path(@job)
+    else
+      # Job doesn't belong to current user
+      @job = false
+      render :new, status: :bad_request
+    end
   end
 
   def destroy
-    @job = Job.find(params[:id])
-    @job.destroy
-    redirect_to jobs_path, status: :see_other
+    if current_user == @job.user
+      @job.destroy
+      redirect_to jobs_path, status: :see_other
+    else
+      # Job doesn't belong to current user
+      redirect_to jobs_path, status: :bad_request
+    end
   end
 
   private
