@@ -1,4 +1,4 @@
 class MessagesController < ApplicationController
-  def create 
+  def create
   end
 end

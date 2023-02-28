@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  before_action :set_job
+
   def index
     @jobs = Job.all
   end
@@ -36,5 +38,9 @@ class JobsController < ApplicationController
 
   def job_params
     params.require(:job).permit(:deadline, :details, :location)
+  end
+
+  def set_job
+    @job = Job.find(params[:id])
   end
 end
