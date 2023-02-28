@@ -6,7 +6,6 @@ class HitmenController < ApplicationController
   end
 
   def show
-    @hitman = Hitman.find(params[:id])
   end
 
   private
