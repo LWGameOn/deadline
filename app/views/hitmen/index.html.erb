@@ -1,22 +1,17 @@
-
-<h1>hitmen</h1>
-
-<%# <ul>
+<div class="fw-bolder text-center pb-3 pt-3">
+<h1>Hitmen</h1>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4 mx-5">
     <% @hitmen.each do |hitman| %>
-      <%# <li>
-         <%= hitman.name %>
-
-      <%# </li> %>
-       <%# <%= link_to "show hitman", hitman_path(hitman.id) %> 
-    <%# <% end %>
-  <%# </ul> %>
-
-<div class="card" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
-  <div class="card-body">
-    <% @hitmen.each do |hitman| %>
-    <h5 class="card-title"><%= hitman.name %></h5>
-    <p class="card-text"><%= hitman.method %></p>
-    <%= link_to "Visit killer's profile", hitman_path(hitman.id), class:"btn btn-primary" %>
-  </div>
+    <div class="col">
+      <div class="card">
+      <img src="https://source.unsplash.com/random/400x300/?hitman" class="card-img-top hitman-img" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= hitman.name %></h5>
+          <p class="card-text"><%= hitman.method %></p>
+          <p class="text-dark fst-italic"> <%= link_to "Visit hitman's profile", hitman %> </p>
+        </div>
+      </div>
+    </div>
+    <% end %>
 </div>
