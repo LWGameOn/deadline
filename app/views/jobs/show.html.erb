@@ -8,10 +8,6 @@
               <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
                 alt="Generic placeholder image" class="img-fluid img-thumbnail mt-4 mb-2"
                 style="width: 150px; z-index: 1">
-              <%# <button type="button" class="btn btn-outline-dark" data-mdb-ripple-color="dark"
-                style="z-index: 1;">
-                 <%= link_to "Send Request", new_hitman_job_path(@hitman), class: "text-decoration-none" %>
-              <%# </button> %>
             </div>
             <div class="ms-3" style="margin-top: 130px;">
               <h5>Your request with <%= link_to @job.hitman.name, hitman_path(@job.hitman.id)%></h5>
@@ -28,7 +24,9 @@
             <div class="mb-2">
               <p class="lead fw-normal mb-1">Job details</p>
               <div class="p-4" style="background-color: #f8f9fa;">
-                <p class="font-italic mb-1"><i class="fa-solid fa-location-crosshairs"></i> <%=@job.location%> &nbsp; &nbsp; <i class="fa-solid fa-dollar-sign"></i> <%= @job.price? ? @job.price : "Yet to be decided"%> &nbsp; &nbsp; <i class="fa-regular fa-calendar-days"></i> <%= @job.deadline %></p>
+                <p class="font-italic mb-1"><i class="fa-solid fa-location-crosshairs"></i> <%=@job.location%></p>
+                <p class="font-italic mb-1"><i class="fa-regular fa-calendar-days"></i> <%= @job.deadline %></p>
+                <p class="font-italic mb-1"><i class="fa-solid fa-dollar-sign"></i> <%= @job.price? ? @job.price : "Yet to be decided"%></p>
                 <p class="font-italic mb-1">Name of hitman: <%=@job.hitman.name%></p>
                 <p class="font-italic mb-1"> Details: <%= @job.details %></p>
               </div>
