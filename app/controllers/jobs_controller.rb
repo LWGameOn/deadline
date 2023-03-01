@@ -1,10 +1,5 @@
 class JobsController < ApplicationController
   before_action :set_hitman, only: %i[new create]
-  def index_requests
-    # Index requests the user has submitted
-    @job = Job.where(user: current_user)
-  end
-
   def index
     # Index jobs the user has requested
     @hitman = Hitman.where(user: current_user)
