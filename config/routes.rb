@@ -14,9 +14,5 @@ Rails.application.routes.draw do
   end
 
   resources :jobs, only: %i[index show update destroy edit]
-<<<<<<< HEAD
-  resources :pages, only: %i[index]
-=======
   resources :pages, only: :index
->>>>>>> master
 end
