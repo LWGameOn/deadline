@@ -1,13 +1,16 @@
 <h1>Your Hitman Profile</h1>
-<ul class="list-group">
-  <li class="list-group-item">
-    <%= @hitman.name %>
-  </li>
-  <li class="list-group-item">
-    <%= @hitman.bio %>
-  </li>
-  <%# profile pics and such %>
-</ul>
+
+<% if @hitman %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <%= @hitman.name %>
+    </li>
+    <li class="list-group-item">
+      <%= @hitman.bio %>
+    </li>
+    <%# profile pics and such %>
+  </ul>
+<% end %>
 <div class="container">
   <h3>Your Jobs</h3>
   <ul class="list-group">

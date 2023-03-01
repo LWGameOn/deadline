@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   end
 
   resources :jobs, only: %i[index show update destroy edit]
+
+  resources :pages, only: %i[index]
 end
