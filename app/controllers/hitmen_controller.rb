@@ -29,6 +29,6 @@ class HitmenController < ApplicationController
   end
 
   def hitman_params
-    params.require(:hitman).permit(:name, :bio, :method, :location)
+    params.require(:hitman).permit(:name, :bio, :method, :location, :photo)
   end
 end

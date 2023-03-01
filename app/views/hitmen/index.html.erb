@@ -1,6 +1,7 @@
 <ul>
     <% @hitmen.each do |hitman| %>
       <li>
+        <%= cl_image_tag(hitman.photo.key, height: 300, width: 400, crop: :fill) if hitman.photo.key %>
          <%= hitman.name %>
 
       </li>
