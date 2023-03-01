@@ -15,9 +15,15 @@
   </head>
 
   <body>
+  <div class="wrapper">
     <%= render "partial/navbar" %>
+    <div>
     <%= yield %>
+    </div>
+    <div>
     <%= render "partial/footer" %>
+    </div>
+  </div>
   </body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
