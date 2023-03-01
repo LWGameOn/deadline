@@ -3,7 +3,7 @@
   <% @jobs.each do |j| %>
    <li class="list-group-item mb-3">
     <%= "#{j.hitman.name} - #{j.hitman.location} - #{j.hitman.method}" %>
-    <%= link_to "View profile", hitman_path(j), class:"btn btn-dark" %>
+    <%= link_to "View profile", hitman_path(j.hitman.id), class:"btn btn-dark" %>
   </li>
   <% end %>
 </ul>
