@@ -8,10 +8,9 @@ end
 # Generate Users that have a hitman
 methods = ["Strangle", "Poison", "Close & Personal", "Sniper", "\"Accident\""]
 30.times do
-  user = User.new(email: Faker::Internet.email, password: "deadline1312")
-  user.save
+  User.new(email: Faker::Internet.email, password: "deadline1312").save
   Hitman.new(
-    user: user,
+    user: User.last,
     method: methods.sample,
     name: Faker::TvShows::RuPaul.queen,
     location: Faker::Address.community,
