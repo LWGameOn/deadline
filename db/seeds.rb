@@ -1,7 +1,7 @@
 require 'faker'
 require 'open-uri'
 # Generate Users
-100.times do
+70.times do
   User.new(email: Faker::Internet.email, password: "deadline1312").save
 end
 
@@ -39,11 +39,13 @@ url = ["https://www.wkbn.com/wp-content/uploads/sites/48/2023/02/joshua-vigorito
         "https://external-preview.redd.it/dRT5wJgsEEWojfaz4ZDsrxAMZ7V9cMGErqhiMDQ4QbE.jpg?auto=webp&s=1f409ae6eff992ae40be6cf16644442c2f2ba740",
        ]
 
-# Generate Hitmen
+# Generate Users that have a hitman
+methods = ["Strangle", "Poison", "Close & Personal", "Sniper", "\"Accident\""]
+
 30.times do
-  methods = ["Strangle", "Poison", "Close & Personal", "Sniper", "\"Accident\""]
+  User.new(email: Faker::Internet.email, password: "deadline1312").save
   Hitman.new(
-    user: User.all.sample,
+    user: User.last,
     method: methods.sample,
     name: Faker::TvShows::RuPaul.queen,
     location: Faker::Address.community,

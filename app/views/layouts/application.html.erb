@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag asset_path('favicon.png')%>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,7 +19,9 @@
   <div class="wrapper">
     <%= render "partial/navbar" %>
     <div>
-    <%= yield %>
+    <div class="container">
+      <%= yield %>
+    </div>
     </div>
     <div>
     <%= render "partial/footer" %>

@@ -1,0 +1,20 @@
+<h1>Your Hitman Profile</h1>
+<ul class="list-group">
+  <li class="list-group-item">
+    <%= @hitman.name %>
+  </li>
+  <li class="list-group-item">
+    <%= @hitman.bio %>
+  </li>
+  <%# profile pics and such %>
+</ul>
+<div class="container">
+  <h3>Your Jobs</h3>
+  <ul class="list-group">
+    <% @jobs.each do |j| %>
+      <li class="list-group-item">
+        <%= link_to "#{j.details} - #{j.location} - #{j.deadline} - #{j.completed}", job_path(j) %>
+      </li>
+      <% end %>
+  </ul>
+</div>
