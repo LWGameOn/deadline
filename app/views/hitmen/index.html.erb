@@ -1,14 +1,16 @@
 
-<h1>hitmen</h1>
-<ul>
+<div class="fw-bolder text-center pb-3 pt-3">
+<h1 class="main-title">Hitmen</h1>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4 mx-5">
     <% @hitmen.each do |hitman| %>
-    <div class="col">
+    <div class="col mb-4">
       <div class="card">
       <img src="https://source.unsplash.com/random/400x300/?hitman" class="card-img-top hitman-img" alt="...">
         <div class="card-body">
           <h5 class="card-title fw-bold"><%= hitman.name %></h5>
           <p class="card-text"><%= hitman.location %></p>
-          <p class="fst-italic"> <%= link_to "Visit hitman's profile", hitman, class: 'text-decoration-none link-danger' %> </p>
+          <p class="fst-italic"> <%= link_to "Visit hitman's profile", hitman, class: 'text-decoration-none text-white' %> </p>
         </div>
       </div>
     </div>

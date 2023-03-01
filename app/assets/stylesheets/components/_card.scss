@@ -1,12 +1,25 @@
 .card-body {
-  background-color: black;
-
+    background: #4b4649;
+    background: -webkit-linear-gradient(to right, rgb(57, 52, 55), rgb(147, 158, 177));
+    background: linear-gradient(to right, rgb(52, 47, 50), rgba(147, 158, 177, 1));
+    // box-shadow: 0 10px 30px black;
   p {
-    color: white;
+    color: rgb(0, 0, 0);
+    font-family: 'Lacquer', cursive;
   }
 
   h5 {
-    font-family: 'Alegreya SC', serif;
-    color: white;
+    font-family: 'Lacquer', cursive;
+    color: rgb(0, 0, 0);
   }
+}
+
+.card {
+  box-shadow: 0 10px 30px black;
+  border-color: rgb(37, 36, 36);
+  border-radius: 5px;
+}
+
+.text-white {
+  color: white;
 }
