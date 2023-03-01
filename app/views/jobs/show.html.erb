@@ -14,7 +14,7 @@
               <%# </button> %>
             </div>
             <div class="ms-3" style="margin-top: 130px;">
-              <h5>Your request with <%=@job.hitman.name%></h5>
+              <h5>Your request with <%= link_to @job.hitman.name, hitman_path(@job.hitman.id)%></h5>
             </div>
           </div>
           <div class="p-4 text-black" style="background-color: #f8f9fa;">
@@ -25,19 +25,17 @@
             </div>
           </div>
           <div class="card-body p-4 text-black">
-            <div class="mb-5">
+            <div class="mb-2">
               <p class="lead fw-normal mb-1">Job details</p>
               <div class="p-4" style="background-color: #f8f9fa;">
+                <p class="font-italic mb-1"><i class="fa-solid fa-location-crosshairs"></i> <%=@job.location%> &nbsp; &nbsp; <i class="fa-solid fa-dollar-sign"></i> <%= @job.price? ? @job.price : "Yet to be decided"%> &nbsp; &nbsp; <i class="fa-regular fa-calendar-days"></i> <%= @job.deadline %></p>
                 <p class="font-italic mb-1">Name of hitman: <%=@job.hitman.name%></p>
-                <p class="font-italic mb-1">Location: <%=@job.location%></p>
-                <p class="font-italic mb-1"> Details: <%= @job.hitman.bio %></p>
-                <p class="font-italic mb-1">Needs to be carried out by: <%= @job.deadline %></p>
-                <p class="font-italic mb-1">Price: <%= @job.price? ? @job.price : "Yet to be decided"%></p>
+                <p class="font-italic mb-1"> Details: <%= @job.details %></p>
               </div>
             </div>
           </div>
           <div class="card-body p-4 text-black">
-            <div class="mb-5">
+            <div class="mb-2">
               <p class="lead fw-normal mb-1">About your hitman</p>
               <div class="p-4" style="background-color: #f8f9fa;">
                 <p class="font-italic mb-1"> Bio: <%= @job.hitman.bio %></p>
