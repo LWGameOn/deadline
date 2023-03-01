@@ -4,7 +4,7 @@ class JobsController < ApplicationController
     # Index requests the user has submitted
     @job = Job.where(user: current_user)
   end
-  
+
   def index
     # Index jobs the user has requested
     @jobs = Job.where(user: current_user)
