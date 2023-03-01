@@ -1,10 +1,12 @@
 <h1>Your Job Requests</h1>
 <ul class="list-group">
-  <% @hitmen.each do |j| %>
+  <% @job.each do |j| %>
   <li class="list-group-item">
-    <p><%= j.name %></p>
-    <p><%= j.bio %></p>
-  
+    <p><%= j.hitman.name %></p>
+    <p><%= j.location %></p>
+    <p><%= j.deadline %></p>
+    <p><%= j.details %></p>
+    <%= link_to "See job", job_path(j), class:"btn btn-dark" %>
   </li>
   <% end %>
 </ul>
