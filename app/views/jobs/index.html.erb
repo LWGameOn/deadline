@@ -1,9 +1,9 @@
 <h1>Your Requests</h1>
 <ul class="list-group">
-  <% @jobs.each do |j| %>
-   <li class="list-group-item">
-    <%= "Hitman: #{j.hitman.name} - Location: #{j.hitman.location} - Method: #{j.hitman.method}" %>
-    <%= link_to "View profile", hitman_path(j.hitman), class:"btn btn-dark" %>
+  <% @hitman.each do |j| %>
+   <li class="list-group-item mb-3">
+    <%= "#{j.name} - #{j.location} - #{j.method}" %>
+    <%= link_to "View profile", hitman_path(j.id), class:"btn btn-dark" %>
   </li>
   <% end %>
 </ul>
