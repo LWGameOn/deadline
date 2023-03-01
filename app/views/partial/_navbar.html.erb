@@ -22,6 +22,7 @@
               <li class="nav-item dropdown">
                 <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                  <%= link_to "Your Dashboard", pages_path, class:"dropdown-item" %>
                   <%= link_to "Your requests", requests_path(current_user), class:"dropdown-item" %>
                   <%= link_to "Your hitmen profiles", jobs_path(current_user), class:"dropdown-item" %>
                   <%= link_to "Log out", destroy_user_session_path, class:"dropdown-item", data: {turbo_method: :delete} %>
