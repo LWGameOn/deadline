@@ -1,9 +1,17 @@
-<ul>
+<div class="fw-bolder text-center pb-3 pt-3">
+<h1 class="main-title">Hitmen</h1>
+</div>
+<div class="row row-cols-1 row-cols-md-3 g-4 mx-5">
     <% @hitmen.each do |hitman| %>
-      <li>
-         <%= hitman.name %>
-
-      </li>
-       <%= link_to "show hitman", hitman_path(hitman.id) %>
+    <div class="col mb-4">
+      <div class="card">
+        <%= cl_image_tag(hitman.photo.key, height: 300, width: 400, crop: :fill, class:"card-img-top hitman-img") if hitman.photo.key %>
+        <div class="card-body">
+          <h5 class="card-title fw-bold"><%= hitman.name %></h5>
+          <p class="card-text"><%= hitman.location %></p>
+          <p class="fst-italic"> <%= link_to "Visit hitman's profile", hitman, class: 'text-decoration-none text-white' %> </p>
+        </div>
+      </div>
+    </div>
     <% end %>
-  </ul>
+</div>
