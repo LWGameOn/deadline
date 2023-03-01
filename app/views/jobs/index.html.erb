@@ -1,8 +1,8 @@
 <h1>Your Jobs</h1>
 <ul class="list-group">
-  <% @jobs.each do |j| %>
-  <li class="list-group-item">
-  <%= "#{j.details} - #{j.location} - #{j.deadline}" %>
+  <% @hitmen.each do |j| %>
+   <li class="list-group-item">
+    <%= "#{j.name} - #{j.location} - #{j.method}" %>
   </li>
   <% end %>
 </ul>
