@@ -7,16 +7,11 @@ Rails.application.routes.draw do
   # root "articles#index"
   # post '/hitmen/:hitman_id/jobs', to: 'jobs#create', as: 'jobs'
 
-  get '/jobs/requests', to: 'jobs#index_requests', as: 'requests'
+  # get '/jobs/requests', to: 'jobs#index_requests', as: 'requests'
 
   resources :hitmen, only: %i[index show new create] do
     resources :jobs, only: %i[new create]
   end
 
   resources :jobs, only: %i[index show update destroy edit]
-<<<<<<< HEAD
-  resources :pages, only: %i[index]
-=======
-  resources :pages, only: :index
->>>>>>> master
 end
