@@ -1,9 +1,9 @@
 <h1>Your Profiles</h1>
 <ul class="list-group">
-  <% @jobs.each do |j| %>
+  <% @hitman.each do |j| %>
    <li class="list-group-item mb-3">
-    <%= "#{j.hitman.name} - #{j.hitman.location} - #{j.hitman.method}" %>
-    <%= link_to "View profile", hitman_path(j.hitman.id), class:"btn btn-dark" %>
+    <%= "#{j.name} - #{j.location} - #{j.method}" %>
+    <%= link_to "View profile", hitman_path(j.id), class:"btn btn-dark" %>
   </li>
   <% end %>
 </ul>

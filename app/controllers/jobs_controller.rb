@@ -7,7 +7,7 @@ class JobsController < ApplicationController
 
   def index
     # Index jobs the user has requested
-    @jobs = Job.where(user: current_user)
+    @hitman = Hitman.where(user: current_user)
   end
 
   def show
