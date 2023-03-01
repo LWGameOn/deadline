@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get '/jobs/requests', to: 'jobs#index_requests', as: 'requests'
 
-  resources :hitmen, only: %i[index show] do
+  resources :hitmen, only: %i[index show new create] do
     resources :jobs, only: %i[new create]
   end
 
