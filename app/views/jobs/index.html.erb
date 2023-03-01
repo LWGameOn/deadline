@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 <h1>Your Profiles</h1>
+=======
+<h1>Your Requests</h1>
+>>>>>>> master
 <ul class="list-group">
-  <% @hitmen.each do |j| %>
+  <% @jobs.each do |j| %>
    <li class="list-group-item">
+<<<<<<< HEAD
     <%= "#{j.name} - #{j.location} - #{j.method}" %>
     <%= link_to "View profile", hitman_path(j), class:"btn btn-dark" %>
+=======
+    <%= "#{j.details} - #{j.location} - #{j.deadline}" %>
+>>>>>>> master
   </li>
   <% end %>
 </ul>
