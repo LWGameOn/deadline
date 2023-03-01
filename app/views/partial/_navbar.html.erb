@@ -8,6 +8,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto">
+            <% if user_signed_in? %>
               <li class="nav-item active">
                 <%= link_to "Home", root_path, class:"nav-link" %>
               </li>
@@ -17,13 +18,17 @@
               <li class="nav-item dropdown">
                 <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                  <%= link_to "Add a job", root_path, class:"nav-link" %>
-                  <a class="dropdown-item" href="#">Another action</a>
-                  <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+                  <%= link_to "Your requests", root_path, class:"dropdown-item" %>
+                  <%= link_to "Your hitmen profiles", jobs_path(current_user), class:"dropdown-item" %>
+                  <%= link_to "Your hitmen requests", requests_path(current_user), class:"dropdown-item" %>
+                  <%= link_to "Log out", destroy_user_session_path, class:"dropdown-item", data: {turbo_method: :delete} %>
                 </div>
               </li>
+            <% else %>
               <li class="nav-item">
+                <%= link_to "Login", new_user_session_path, class: "btn btn-prima" %>
               </li>
+            <% end %>
           </ul>
         </div>
       </div>
