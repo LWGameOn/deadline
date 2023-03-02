@@ -1,16 +1,8 @@
 <div class="container p-3">
   <div class="container p-3">
     <% if @hitman %>
-    <%= render "partial/hitman" %>
-      <h3>Your Jobs</h3>
-      <ul class="list-group">
-        <% @jobs.each do |j| %>
-          <li class="list-group-item">
-            <%= link_to "#{j.details} - #{j.location} - #{j.deadline} - #{j.completed}", job_path(j) %>
-          </li>
-        <% end %>
-      </ul>
-  <% else %>
+      <%= render "partial/hitman" %>
+    <% else %>
     <h5>You don't have a hitman profile yet ...</h5>
     <%= link_to "Create a profile", new_hitman_path, class:"btn btn-dark" %>
   <% end %>
