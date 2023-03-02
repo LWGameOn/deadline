@@ -1,17 +1,11 @@
-<h1>Your Hitman Profile</h1>
-
+<br>
 <% if @hitman %>
-  <ul class="list-group">
-    <li class="list-group-item">
-      <%= @hitman.name %>
-    </li>
-    <li class="list-group-item">
-      <%= @hitman.bio %>
-    </li>
-    <%# profile pics and such %>
-  </ul>
+  <%= render "partial/hitman" %>
+<% else %>
+  <h5>You don't have a hitman profile yet ...</h5>
+  <%= link_to "Create a profile", new_hitman_path, class:"btn btn-dark" %>
 <% end %>
-<div class="container">
+<div class="">
   <h3>Your Jobs</h3>
   <ul class="list-group">
     <% @jobs.each do |j| %>
