@@ -67,26 +67,7 @@ i = 0
   i += 1
 end
 
-# Generate various completed jobs
-20.times do
-  user = User.all.sample
-  hitman = Hitman.all.sample
-  Job.new(
-    details: "Please kill #{Faker::FunnyName.three_word_name}! 😇 thaaaaaaanks ✌️🤪🫶",
-    deadline: Faker::Date.backward(days: 365),
-    user: user,
-    hitman: hitman,
-    location: Faker::Address.full_address,
-    price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2),
-    completed: true,
-    accepted: true,
-    paid: (rand(2) == 1),
-    review: Faker::TvShows::TwinPeaks.quote,
-    rating: Faker::Number.between(from: 0, to: 5).floor
-  ).save
-end
-
-# Generate Uncompleted Unaccepted Jobs
+# Generate Pending Jobs
 20.times do
   user = User.all.sample
   hitman = Hitman.all.sample
@@ -111,7 +92,37 @@ end
     hitman: hitman,
     location: Faker::Address.full_address,
     price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2),
-    accepted: true
+    status: 1
+  ).save
+end
+
+# Generate Denied Jobs
+5.times do
+  user = User.all.sample
+  hitman = Hitman.all.sample
+  Job.new(
+    details: "Please kill #{Faker::FunnyName.three_word_name}! 😇 thaaaaaaanks ✌️🤪🫶",
+    deadline: Faker::Date.forward(days: 365),
+    user: user,
+    hitman: hitman,
+    location: Faker::Address.full_address,
+    price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2),
+    status: 2
+  ).save
+end
+
+# Generate Completed Jobs
+20.times do
+  user = User.all.sample
+  hitman = Hitman.all.sample
+  Job.new(
+    details: "Please kill #{Faker::FunnyName.three_word_name}! 😇 thaaaaaaanks ✌️🤪🫶",
+    deadline: Faker::Date.forward(days: 365),
+    user: user,
+    hitman: hitman,
+    location: Faker::Address.full_address,
+    price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2),
+    status: 3
   ).save
 end
 
