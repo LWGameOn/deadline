@@ -1,10 +1,14 @@
 <h1 id="title-color" class="text-center pt-4">ARE YOU 18 OR OLDER?</h1>
 <div class="fake-buttons">
   <div class="d-flex justify-content-center p-4 landing-title align-items-center">
-  <h3> <%= link_to "I am", hitmen_path, class: "link-style" %> </h3>
-  <h3> <%= link_to "I am not", hitmen_path, class: "link-style" %> </h3
+  <%= link_to hitmen_path, class:"text-decoration-none" do %>
+    <h3 class="link-style">I am</h3>
+  <% end %>
+  <%= link_to hitmen_path, class:"text-decoration-none" do %>
+  <h3 class="link-style">I am not</h3>
   </div>
+  <% end %>
 </div>
-<div class="position-absolute top-100 start-50 translate-middle catch-phrase">
+<div class="catch-phrase text-center">
 <p><strong>There's A Bullet For Everyone. And A Time. And A Place. An End</strong><p>
 </div>
