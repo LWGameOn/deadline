@@ -16,18 +16,15 @@
   </head>
 
   <body>
-  <div class="wrapper gradient-custom-2" style="padding-top:90px;">
-    <%= render "partial/navbar" %>
-    <div>
-    <div class="container ">
-      <%= yield %>
+    <div class="wrapper gradient-custom-2" style="padding-top:90px; min-height:100vh; display: grid; grid-template-rows: 1fr auto; grid-template-columns: 1fr;">
+      <%= render "partial/navbar" %>
+
+      <div class="container">
+        <%= yield %>
+      </div>
+      </div>
+
+      <%= render "partial/footer" %>
     </div>
-    </div>
-    <div>
-    <%= render "partial/footer" %>
-    </div>
-  </div>
   </body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
 </html>
