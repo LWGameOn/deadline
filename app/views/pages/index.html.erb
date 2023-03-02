@@ -7,6 +7,22 @@
     <%= link_to "Create a profile", new_hitman_path, class:"btn btn-dark" %>
   <% end %>
   </div>
+  <div class="container p-3" id="filter">
+  <h1 class="main-title py-3" style="text-align:center;">Your jobs</h2>
+    <div class="filter d-flex" style="margin-left:280px;">
+      <h4 class="main-title">filter for: &nbsp; </h4>
+      <%= link_to "all", pages_path(anchor: 'filter'), class:"btn btn-outline-dark", style:"margin-right:20px;" %>
+      <%= link_to "pending", pages_path(filter: "pending", anchor: 'filter'), class:"btn btn-outline-dark", style:"margin-right:20px;" %>
+      <%= link_to "accepted", pages_path(filter: "accepted", anchor: 'filter'), class:"btn btn-outline-dark", style:"margin-right:20px;" %>
+      <%= link_to "denied", pages_path(filter: "denied", anchor: 'filter'), class:"btn btn-outline-dark", style:"margin-right:20px;" %>
+      <%= link_to "completed", pages_path(filter: "completed", anchor: 'filter'), class:"btn btn-outline-dark", style:"margin-right:20px;" %>
+    </div>
+    <% if @jobs.any? %>
+      <%= render "partial/your_jobs" %>
+    <% else %>
+    <h4 class="main-title" style="text-align:center; padding-top: 20px;">Nothing here ...</h4>
+  <% end %>
+  </div>
   <div class="container p-3">
     <% if @requests.any? %>
       <%= render "partial/your_requests" %>
