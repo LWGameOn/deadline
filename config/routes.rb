@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   resources :hitmen, only: %i[index show new create edit update destroy] do
     resources :jobs, only: %i[new create]
   end
-
-  # delete 'hitmen/destroy', to: 'hitmen#destroy', as: 'delete'
+  resources :pages, only: %i[home index]
 
   resources :jobs, only: %i[index show update destroy edit]
 

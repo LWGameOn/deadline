@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 
   def index
     # Index jobs the user's hitmen are assigned to
-    @hitman = Hitman.where(user: current_user).first
-    @jobs = Job.where(user: current_user)
+    @hitman = Hitman.find_by(user: current_user)
+    @jobs = Job.where(hitman: @hitman)
   end
 end
