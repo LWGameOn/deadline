@@ -1,17 +1,26 @@
-<br>
-<% if @hitman %>
-  <%= render "partial/hitman" %>
-<% else %>
-  <h5>You don't have a hitman profile yet ...</h5>
-  <%= link_to "Create a profile", new_hitman_path, class:"btn btn-dark" %>
-<% end %>
-<div class="">
-  <h3>Your Jobs</h3>
-  <ul class="list-group">
-    <% @jobs.each do |j| %>
-      <li class="list-group-item">
-        <%= link_to "#{j.details} - #{j.location} - #{j.deadline} - #{j.completed}", job_path(j) %>
-      </li>
-      <% end %>
-  </ul>
+<div class="container p-3">
+  <div class="container p-3">
+    <% if @hitman %>
+    <%= render "partial/hitman" %>
+      <h3>Your Jobs</h3>
+      <ul class="list-group">
+        <% @jobs.each do |j| %>
+          <li class="list-group-item">
+            <%= link_to "#{j.details} - #{j.location} - #{j.deadline} - #{j.completed}", job_path(j) %>
+          </li>
+        <% end %>
+      </ul>
+  <% else %>
+    <h5>You don't have a hitman profile yet ...</h5>
+    <%= link_to "Create a profile", new_hitman_path, class:"btn btn-dark" %>
+  <% end %>
+  </div>
+  <div class="container p-3">
+    <% if @requests.any? %>
+      <%= render "partial/your_requests" %>
+    <% else %>
+      <h5>You haven't made a request yet ...</h5>
+      <%= link_to "Put out a hit", hitmen_path, class:"btn btn-dark" %>
+    <% end %>
+  </div>
 </div>

@@ -1,0 +1,17 @@
+<h1 class="main-title">Your Job Requests</h2>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4 mx-5 py-3">
+    <% @requests.each do |request| %>
+    <%= link_to job_path(request), class:"text-decoration-none" do %>
+    <div class="col mb-4">
+      <div class="card position-relative">
+        <div class="card-body">
+          <h5 class="card-title fw-bold"><%= request.hitman.name %></h5>
+          <p class="card-text">Details: <%= request.details %></p>
+        </div>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
+</div>
+</div>
