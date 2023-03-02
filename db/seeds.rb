@@ -5,9 +5,12 @@ require 'open-uri'
   User.new(email: Faker::Internet.email, password: "deadline1312").save
 end
 
-#attach images to hitmans after 15th duplicated photos
+#attach images to hitmans after 17th duplicated photos
 
 url = ["https://www.wkbn.com/wp-content/uploads/sites/48/2023/02/joshua-vigorito-mugshot-counterfeiting-theft-charges-niles.jpg?w=1280",
+        "https://i.dailymail.co.uk/1s/2020/02/27/14/25274050-8051507-image-a-5_1582813514308.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Jeremy_Meeks_Mug_Shot.jpg/640px-Jeremy_Meeks_Mug_Shot.jpg",
+        "https://www.thesun.co.uk/wp-content/uploads/2018/12/NINTCHDBPICT000454147460.jpg",
         "https://bloximages.chicago2.vip.townnews.com/wcfcourier.com/content/tncms/assets/v3/editorial/5/08/5088b0cc-b231-536d-bdaa-7cd149667de1/5d4db0a7d47de.image.jpg",
         "https://static.independent.co.uk/2022/03/11/16/Screen%20Shot%202022-03-11%20at%2011.29.09%20AM.png?width=1200",
         "https://metro.co.uk/wp-content/uploads/2013/10/sd10.jpg?quality=90&strip=all&zoom=1&resize=480%2C643",
@@ -28,6 +31,9 @@ url = ["https://www.wkbn.com/wp-content/uploads/sites/48/2023/02/joshua-vigorito
         "https://metro.co.uk/wp-content/uploads/2013/10/sd10.jpg?quality=90&strip=all&zoom=1&resize=480%2C643",
         "https://www.thesmokinggun.com/sites/default/files/assets/michiganhairmiss21.jpg",
         "https://www.thesun.co.uk/wp-content/uploads/2019/10/NINTCHDBPICT000535085906.jpg",
+        "https://i.dailymail.co.uk/1s/2020/02/27/14/25274050-8051507-image-a-5_1582813514308.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Jeremy_Meeks_Mug_Shot.jpg/640px-Jeremy_Meeks_Mug_Shot.jpg",
+        "https://www.thesun.co.uk/wp-content/uploads/2018/12/NINTCHDBPICT000454147460.jpg",
         "https://www.wiproud.com/wp-content/uploads/sites/46/2020/10/PETE.jpg?w=480",
         "https://metro.co.uk/wp-content/uploads/2014/06/ad_138404366-e1403272967765.jpg?quality=90&strip=all&zoom=1&resize=480%2C594",
         "https://www.teamjimmyjoe.com/wp-content/uploads/2012/11/Funny-Mug-Shots-fat-neck.jpg",
@@ -36,7 +42,7 @@ url = ["https://www.wkbn.com/wp-content/uploads/sites/48/2023/02/joshua-vigorito
         "https://imgix.ranker.com/user_node_img/50049/1000977398/original/boys-don-t-cry-photo-u1?auto=format&q=60&fit=crop&fm=pjpg&dpr=2&w=375",
         "https://www.thesun.co.uk/wp-content/uploads/2018/09/NINTCHDBPICT000437528984.jpg",
         "https://d2r8r0qhs4bt8m.cloudfront.net/wp-content/uploads/2019/10/18174401/desktop-1406690125.png",
-        "https://external-preview.redd.it/dRT5wJgsEEWojfaz4ZDsrxAMZ7V9cMGErqhiMDQ4QbE.jpg?auto=webp&s=1f409ae6eff992ae40be6cf16644442c2f2ba740",
+        "https://external-preview.redd.it/dRT5wJgsEEWojfaz4ZDsrxAMZ7V9cMGErqhiMDQ4QbE.jpg?auto=webp&s=1f409ae6eff992ae40be6cf16644442c2f2ba740"
        ]
 
 # Generate Users that have a hitman
@@ -53,10 +59,10 @@ methods = ["Strangle", "Poison", "Close & Personal", "Sniper", "\"Accident\""]
   ).save
 end
 
-i = 1
+i = 0
 15.times do
-  image = URI.open(url[i-1])
-  hitman = Hitman.find(i)
+  image = URI.open(url[i])
+  hitman = Hitman.find(i+1)
   hitman.photo.attach(io: image, filename: "hitman.jpg", content_type: "image/jpg")
   i += 1
 end
