@@ -1,8 +1,8 @@
 <section class="h-100 gradient-custom-">
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
+  <div class="container align-items-center py-5 h-100">
+    <div class="row d-flex justify-content-center h-100">
       <div class="col col-lg-9 col-xl-7">
-        <div class="card">
+        <div class="card mb-3">
           <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:200px;">
             <div class="ms-4 mt-5 d-flex flex-column" style="width: 150px;">
                 <div class="img-thumbnail mt-4 mb-2" style="z-index: 1"><%= cl_image_tag(@hitman.photo.key, height: 140, width: 140, crop: :fill) %> </div>
@@ -36,6 +36,40 @@
           <div class="buttons d-flex mb-2">
             <%= link_to "Edit profile", edit_hitman_path(@hitman), class:"btn btn-dark", style:"width:48%; margin-left:1%;"%>
             <%= link_to "Delete profile", hitman_path(@hitman), data: { turbo_method: :delete, confirm: 'Are You sure?' }, class:"btn btn-dark", style:"width:48%; margin-left:2%;"%>
+          </div>
+        </div>
+      </div>
+      <div class="col col-lg-10 col-xl-10">
+        <div class="card" >
+          <div class="rounded-top text-white d-flex flex-row" style="background-color: #000; height:70px;">
+            <div class="ms-4 mt-4 d-flex flex-column" style="width: 250px;">
+              <h5>Your hitman job resquests</h5>
+            </div>
+          </div>
+          <div class="card-body-1 p-4 text-black">
+            <div class="mb-3">
+              <div class="p-4">
+                <% @jobs.each do |job| %>
+                  <div class="d-flex mb-3 p-4" style="background-color: #f8f9fa;">
+                    <div class="box" style="width: 550px;">
+                      <p class="font-italic mb-0"> from: <strong><%= job.user.email %></strong></p>
+                      <br>
+                      <p><i class="fa-solid fa-location-crosshairs"></i> <%= job.location %> &nbsp; <i class="fa-solid fa-money-bill"> &nbsp;</i><%= job.price %>€</p>
+                      <p class="font-italic mb-0"> details: <%= job.details %></p>
+                    </div>
+                    <div class="views"  >
+                      <%= link_to "View all details", job_path(job), class:"btn btn-dark" %>
+                    </div>
+                    <% if job.accepted == false %>
+                    <div class="btns" style="margin-left:10px;">
+                      <%= link_to "Accept", job_path(job), class:"btn btn-outline-dark" %>
+                      <%= link_to "Decline", job_path(job), class:"btn btn-outline-dark" %>
+                    </div>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       </div>
