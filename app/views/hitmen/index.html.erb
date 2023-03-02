@@ -3,15 +3,17 @@
 </div>
 <div class="row row-cols-1 row-cols-md-3 g-4 mx-5">
     <% @hitmen.each do |hitman| %>
+    <%= link_to hitman_path(hitman), class:"text-decoration-none" do %>
     <div class="col mb-4">
-      <div class="card">
+      <div class="card position-relative">
         <%= cl_image_tag(hitman.photo.key, height: 300, width: 400, crop: :fill, class:"card-img-top hitman-img") if hitman.photo.key %>
         <div class="card-body">
           <h5 class="card-title fw-bold"><%= hitman.name %></h5>
           <p class="card-text"><%= hitman.location %></p>
-          <p class="fst-italic"> <%= link_to "Visit hitman's profile", hitman, class: 'text-decoration-none text-white' %> </p>
+          <%# <p class="fst-italic"> <%= link_to "Visit hitman's profile", hitman, class: 'text-decoration-none text-white' %> </p>
         </div>
       </div>
     </div>
+    <% end %>
     <% end %>
 </div>
