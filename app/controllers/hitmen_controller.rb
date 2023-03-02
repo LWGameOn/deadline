@@ -28,6 +28,22 @@ class HitmenController < ApplicationController
   def show
   end
 
+  def edit
+    @hitman = Hitman.find(params[:id])
+  end
+
+  def update
+    @hitman = Hitman.find(params[:id])
+    @hitman.update(hitman_params)
+    redirect_to pages_path(@hitman)
+  end
+
+  def destroy
+    @hitman = Hitman.find(params[:id])
+    @hitman.destroy
+    redirect_to pages_path, status: :see_other
+  end
+
   private
 
   def set_hitman

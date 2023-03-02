@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_28_105414) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_02_125314) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,9 +57,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_105414) do
     t.text "details"
     t.date "deadline"
     t.string "location"
-    t.boolean "completed", default: false
     t.decimal "price"
-    t.boolean "accepted", default: false
     t.boolean "paid", default: false
     t.decimal "rating"
     t.text "review"
@@ -67,6 +65,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_28_105414) do
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
     t.bigint "hitman_id", null: false
+    t.integer "status", default: 0
     t.index ["hitman_id"], name: "index_jobs_on_hitman_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end

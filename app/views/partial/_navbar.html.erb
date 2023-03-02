@@ -1,7 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar fixed-top navbar-expand-sm navbar-light navbar-lewagon">
       <div class="container-fluid">
         <a class="navbar-brand" href="/">
-          <%= image_tag "illust57-5746.jpg" %>
+          <%= image_tag "landindlogo.jpg" %>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -16,14 +16,10 @@
               <li class="nav-item active">
                 <%= link_to "Home", root_path, class:"nav-link" %>
               </li>
-              <li class="nav-item">
-                <%= link_to "Messages", root_path, class:"nav-link comic" %>
-              </li>
               <li class="nav-item dropdown comic">
                 <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <%= link_to "Your Dashboard", pages_path, class:"dropdown-item" %>
-                  <%= link_to "Your requests", jobs_path, class:"dropdown-item" %>
                   <%= link_to "Log out", destroy_user_session_path, class:"dropdown-item", data: {turbo_method: :delete} %>
                 </div>
               </li>
