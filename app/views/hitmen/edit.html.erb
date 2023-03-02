@@ -1,4 +1,4 @@
-<h2>Create your hitman profile</h2>
+<h4 style="padding-top:10px;">Edit your profile</h4>
 
 <%= simple_form_for [@hitman] do |f| %>
   <%= f.input :name %>
@@ -6,8 +6,6 @@
   <%= f.input :location %>
   <%= f.input :method %>
   <%= f.input :photo, as: :file %>
-  <br>
-  <br>
-  <%= f.submit "Create your profile", class: "btn btn-dark" %>
+  <%= f.submit "Commit changes", class: "btn btn-dark" %>
 <% end %>
 <br>
