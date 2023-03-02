@@ -42,7 +42,7 @@ url = ["https://www.wkbn.com/wp-content/uploads/sites/48/2023/02/joshua-vigorito
 # Generate Users that have a hitman
 methods = ["Strangle", "Poison", "Close & Personal", "Sniper", "\"Accident\""]
 
-30.times do
+15.times do
   User.new(email: Faker::Internet.email, password: "deadline1312").save
   Hitman.new(
     user: User.last,
@@ -54,15 +54,15 @@ methods = ["Strangle", "Poison", "Close & Personal", "Sniper", "\"Accident\""]
 end
 
 i = 1
-30.times do
-  image = URI.open(url.sample)
+15.times do
+  image = URI.open(url[i-1])
   hitman = Hitman.find(i)
   hitman.photo.attach(io: image, filename: "hitman.jpg", content_type: "image/jpg")
   i += 1
 end
 
 # Generate various completed jobs
-50.times do
+20.times do
   user = User.all.sample
   hitman = Hitman.all.sample
   Job.new(

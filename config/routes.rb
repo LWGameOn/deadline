@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   resources :hitmen, only: %i[index show new create] do
     resources :jobs, only: %i[new create]
   end
-
+  resources :pages, only: %i[home index]
   resources :jobs, only: %i[index show update destroy edit]
 end
