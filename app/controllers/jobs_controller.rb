@@ -50,6 +50,24 @@ class JobsController < ApplicationController
     end
   end
 
+  def accept
+    @job = Job.find(params[:id])
+    @job.update(status: 1)
+    redirect_to pages_path
+  end
+
+  def deny
+    @job = Job.find(params[:id])
+    @job.update(status: 2)
+    redirect_to pages_path
+  end
+
+  def completed
+    @job = Job.find(params[:id])
+    @job.update(status: 3)
+    redirect_to pages_path
+  end
+
   private
 
   def job_params
