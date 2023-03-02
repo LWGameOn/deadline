@@ -50,8 +50,8 @@
             <div class="mb-3">
               <div class="p-4">
                 <% @jobs.each do |job| %>
-                  <div class="d-flex mb-3" style="background-color: #f8f9fa;">
-                    <div class="box" style="width: 620px;">
+                  <div class="d-flex mb-3 p-4" style="background-color: #f8f9fa;">
+                    <div class="box" style="width: 550px;">
                       <p class="font-italic mb-0"> from: <strong><%= job.user.email %></strong></p>
                       <br>
                       <p><i class="fa-solid fa-location-crosshairs"></i> <%= job.location %> &nbsp; <i class="fa-solid fa-money-bill"> &nbsp;</i><%= job.price %>€</p>
