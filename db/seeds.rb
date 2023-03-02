@@ -1,7 +1,7 @@
 require 'faker'
 require 'open-uri'
 # Generate Users
-70.times do
+40.times do
   User.new(email: Faker::Internet.email, password: "deadline1312").save
 end
 
@@ -62,7 +62,7 @@ i = 1
 end
 
 # Generate various completed jobs
-100.times do
+50.times do
   user = User.all.sample
   hitman = Hitman.all.sample
   Job.new(
@@ -81,7 +81,7 @@ end
 end
 
 # Generate Uncompleted Unaccepted Jobs
-50.times do
+20.times do
   user = User.all.sample
   hitman = Hitman.all.sample
   Job.new(
@@ -95,7 +95,7 @@ end
 end
 
 # Generate Uncompleted Accepted Jobs
-50.times do
+20.times do
   user = User.all.sample
   hitman = Hitman.all.sample
   Job.new(
@@ -109,13 +109,13 @@ end
   ).save
 end
 
-# Generate Fuckload of Messages
-1000.times do
-  job = Job.all.sample
-  users = [job.hitman.user, job.user]
-  Message.new(
-    job: job,
-    user: users.sample,
-    content: Faker::TvShows::Spongebob.quote
-  ).save
-end
+# Don't # Generate Fuckload of Messages
+# 1000.times do
+#   job = Job.all.sample
+#   users = [job.hitman.user, job.user]
+#   Message.new(
+#     job: job,
+#     user: users.sample,
+#     content: Faker::TvShows::Spongebob.quote
+#   ).save
+# end
