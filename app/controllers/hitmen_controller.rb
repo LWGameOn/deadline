@@ -2,7 +2,13 @@ class HitmenController < ApplicationController
   before_action :set_hitman, only: :show
 
   def index
-    @hitmen = Hitman.all
+    query = params[:query]
+
+    if query.present?
+      @hitmen = Hitman.search_by_location_and_method(query)
+    else
+      @hitmen = Hitman.all
+    end
   end
 
   def new

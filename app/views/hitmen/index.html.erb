@@ -1,6 +1,20 @@
 <div class="fw-bolder text-center pb-3 pt-3">
 <h1 class="main-title">Hitmen</h1>
-</div>
+<!-- [Search] -->
+<div class="search mt-4 mb-4">
+  <%= form_with url: hitmen_path, method: :get, class: "d-flex" do %>
+      <div class="input-group rounded">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control rounded",
+          placeholder: "Search location or method"
+        %>
+        <%= submit_tag "Search", class:"btn btn-light"%>
+      </div>
+  <% end %>
+ </div>
+<!-- [...] -->
+
 <div class="row row-cols-1 row-cols-md-3 g-4 mx-5">
     <% @hitmen.each do |hitman| %>
     <%= link_to hitman_path(hitman), class:"text-decoration-none" do %>
