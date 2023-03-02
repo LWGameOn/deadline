@@ -8,6 +8,13 @@
   <% end %>
   </div>
   <div class="container p-3">
+    <% if @jobs.any? %>
+      <%= render "partial/your_jobs" %>
+    <% else %>
+    <h4 class="main-title">Nobody is requesting your services at the moment ...</h4>
+  <% end %>
+  </div>
+  <div class="container p-3">
     <% if @requests.any? %>
       <%= render "partial/your_requests" %>
     <% else %>

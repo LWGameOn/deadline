@@ -16,5 +16,9 @@ Rails.application.routes.draw do
 
   resources :jobs, only: %i[index show update destroy edit]
 
+  get 'jobs/:id/accept', to: 'jobs#accept', as: 'job_accept'
+  get 'jobs/:id/deny', to: 'jobs#deny', as: 'job_deny'
+  get 'jobs/:id/completed', to: 'jobs#completed', as: 'job_completed'
+
   resources :pages, only: %i[index]
 end

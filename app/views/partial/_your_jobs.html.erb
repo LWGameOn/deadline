@@ -1,0 +1,47 @@
+<h1 class="main-title py-3" style="text-align:center;">Your jobs</h2>
+<div class="col col-lg-10 col-xl-10" style="margin-left:100px;">
+  <div class="filter d-flex" style="margin-left:200px;">
+    <p class="main-title">filter for: &nbsp; </p>
+    <%= link_to "all", job_accept_path(@jobs), class:"btn btn-outline-dark", style:"margin-right:20px;" %>
+    <%= link_to "pending", job_accept_path(@jobs), class:"btn btn-outline-dark", style:"margin-right:20px;" %>
+    <%= link_to "accepted", job_accept_path(@jobs), class:"btn btn-outline-dark", style:"margin-right:20px;" %>
+    <%= link_to "denied", job_accept_path(@jobs), class:"btn btn-outline-dark", style:"margin-right:20px;" %>
+    <%= link_to "completed", job_accept_path(@jobs), class:"btn btn-outline-dark", style:"margin-right:20px;" %>
+  </div>
+  <div class="card-body-1 text-black">
+    <div>
+      <div class="p-3">
+        <% @jobs.each do |job| %>
+          <%= link_to job_path(job), class:"text-decoration-none" do %>
+            <div class="box" style="width: 100%;">
+              <div class="col">
+                <div class="card-body d-flex my-3 p-4" style=" box-shadow: 0 10px 30px black; border:1px solid black; border-radius: 5px; background: linear-gradient(to right, rgb(87,88,97), rgb(190, 203, 224, 1));">
+                  <div class="bod" style="width:750px;">
+                    <h5 class="card-title fw-bold">from: <strong><%= job.user.email %></strong></h5>
+                    <br>
+                    <p><i class="fa-solid fa-location-crosshairs"></i> <%= job.location %> &nbsp; <i class="fa-solid fa-money-bill"> &nbsp;</i><%= job.price %>€</p>
+                    <p class="font-italic mb-0"> details: <%= job.details %></p>
+                  </div>
+                  <div class="btns">
+                    <% if job.status == "pending" %>
+                      <div style="margin-left:10px;">
+                        <%= link_to "Accept", job_accept_path(job), class:"btn btn-outline-dark" %>
+                        <%= link_to "Deny", job_deny_path(job), class:"btn btn-outline-dark" %>
+                      </div>
+                    <% elsif job.status == "accepted" %>
+                      <div class="btns" style="margin-left:10px;">
+                        <%= link_to "Complete", job_completed_path(job), class:"btn btn-outline-dark" %>
+                      </div>
+                    <% elsif job.status == "completed" %>
+                      <p style="padding-top:80px; padding-left:8px;">Mission completed</p>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
