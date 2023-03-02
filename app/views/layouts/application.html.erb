@@ -16,10 +16,10 @@
   </head>
 
   <body>
-  <div class="wrapper gradient-custom-2" style="padding-top:90px;">
+  <div class="wrapper gradient-custom-2 <%= "background-pic" if devise_controller? %>" style="padding-top:90px;">
     <%= render "partial/navbar" %>
     <div>
-    <div class="container ">
+    <div class="container">
       <%= yield %>
     </div>
     </div>
