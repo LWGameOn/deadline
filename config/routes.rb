@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'jobs/:id/accept', to: 'jobs#accept', as: 'job_accept'
   get 'jobs/:id/deny', to: 'jobs#deny', as: 'job_deny'
   get 'jobs/:id/completed', to: 'jobs#completed', as: 'job_completed'
+  get 'jobs/:id/filter', to: 'jobs#filter', as: 'job_filter'
 
   resources :pages, only: %i[index]
 end

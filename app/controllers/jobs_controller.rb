@@ -68,10 +68,6 @@ class JobsController < ApplicationController
     redirect_to pages_path
   end
 
-  def filter
-    
-  end
-
   private
 
   def job_params
