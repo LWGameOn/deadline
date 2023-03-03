@@ -14,13 +14,6 @@
               <h5>Your request with <%= link_to @job.hitman.name, hitman_path(@job.hitman.id)%></h5>
             </div>
           </div>
-          <div class="p-4 text-black" style="background-color: #f8f9fa;">
-            <div class="d-flex justify-content-end text-center py-1">
-              <div>
-                <%= link_to "View all hitmen", root_path %>
-              </div>
-            </div>
-          </div>
           <div class="card-body-1 p-4 text-black">
             <div class="mb-2">
               <p class="lead fw-normal mb-1">Job details</p>
@@ -30,6 +23,8 @@
                 <p class="font-italic mb-1"><i class="fa-solid fa-face-dizzy"></i> <%= @job.target_number %></p>
                 <% if @job.hitman.price.zero? %>
                   <p class="font-italic mb-1"><i class="fa-solid fa-dollar-sign"></i> Negotiable</p>
+                <% elsif @job.target_number == 1 %>
+                  <p class="font-italic mb-1"><i class="fa-solid fa-dollar-sign"></i> <%= @job.hitman.price %></p>
                 <% else %>
                   <p class="font-italic mb-1"><i class="fa-solid fa-dollar-sign"></i> <%= "#{@job.hitman.price} * #{@job.target_number}"%>
                   <br><%= "= $#{@job.hitman.price * @job.target_number}"%></p>
