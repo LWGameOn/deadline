@@ -30,7 +30,7 @@
               <div class="p-4" style="background-color: #f8f9fa;">
                 <p class="font-italic mb-1"> <strong> Bio: </strong> <%= @hitman.bio %></p>
                 <p class="font-italic mb-0"><strong> Favourite Kill Style: </strong> <%= @hitman.method %></p>
-                <% if @hitman.price.nil? %>
+                <% if @hitman.price.zero? %>
                   <p class="font-italic mb-0"><strong> Base price: </strong>Negotiable</p>
                 <% else %>
                   <p class="font-italic mb-0"><strong> Base price: </strong>$<%= @hitman.price %></p>
