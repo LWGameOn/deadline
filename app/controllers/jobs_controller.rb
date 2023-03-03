@@ -15,6 +15,7 @@ class JobsController < ApplicationController
 
   def new
     @job = Job.new
+    @form = true
   end
 
   def create
