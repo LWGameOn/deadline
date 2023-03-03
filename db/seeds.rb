@@ -48,7 +48,21 @@ url = ["https://www.wkbn.com/wp-content/uploads/sites/48/2023/02/joshua-vigorito
 # Generate Users that have a hitman
 methods = ["Strangle", "Poison", "Close & Personal", "Sniper", "\"Accident\""]
 
-15.times do
+# Hitmen with prices
+10.times do
+  User.new(email: Faker::Internet.email, password: "deadline1312").save
+  Hitman.new(
+    user: User.last,
+    method: methods.sample,
+    name: Faker::TvShows::RuPaul.queen,
+    location: Faker::Address.community,
+    bio: Faker::TvShows::Community.quotes,
+    price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2)
+  ).save
+end
+
+# Hitmen without Prices
+5.times do
   User.new(email: Faker::Internet.email, password: "deadline1312").save
   Hitman.new(
     user: User.last,
@@ -67,8 +81,8 @@ i = 0
   i += 1
 end
 
-# Generate Pending Jobs
-20.times do
+# Generate Pending Jobs with 1 target
+7.times do
   user = User.all.sample
   hitman = Hitman.all.sample
   Job.new(
@@ -76,13 +90,26 @@ end
     deadline: Faker::Date.forward(days: 365),
     user: user,
     hitman: hitman,
-    location: Faker::Address.full_address,
-    price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2),
+    location: Faker::Address.full_address
   ).save
 end
 
-# Generate Uncompleted Accepted Jobs
-20.times do
+# Generate Pending Jobs with between 2 and 5 targets
+13.times do
+  user = User.all.sample
+  hitman = Hitman.all.sample
+  Job.new(
+    details: "Please kill #{Faker::FunnyName.three_word_name} and their friends! 😇 thaaaaaaanks ✌️🤪🫶",
+    deadline: Faker::Date.forward(days: 365),
+    user: user,
+    hitman: hitman,
+    location: Faker::Address.full_address,
+    target_number: rand(2..5)
+  ).save
+end
+
+# Generate Uncompleted Accepted Jobs 1 target
+10.times do
   user = User.all.sample
   hitman = Hitman.all.sample
   Job.new(
@@ -91,12 +118,54 @@ end
     user: user,
     hitman: hitman,
     location: Faker::Address.full_address,
-    price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2),
     status: 1
   ).save
 end
 
-# Generate Denied Jobs
+# 2-5 targets
+20.times do
+  user = User.all.sample
+  hitman = Hitman.all.sample
+  Job.new(
+    details: "Please kill #{Faker::FunnyName.three_word_name} and their friends! 😇 thaaaaaaanks ✌️🤪🫶",
+    deadline: Faker::Date.forward(days: 365),
+    user: user,
+    hitman: hitman,
+    location: Faker::Address.full_address,
+    status: 1,
+    target_number: rand(2..5)
+  ).save
+end
+
+2.times do
+  user = User.all.sample
+  hitman = Hitman.all.sample
+  Job.new(
+    details: "Please kill #{Faker::FunnyName.three_word_name}! 😇 thaaaaaaanks ✌️🤪🫶",
+    deadline: Faker::Date.forward(days: 365),
+    user: user,
+    hitman: hitman,
+    location: Faker::Address.full_address,
+    status: 2
+  ).save
+end
+
+# Generate Denied Jobs 1-5 targets
+3.times do
+  user = User.all.sample
+  hitman = Hitman.all.sample
+  Job.new(
+    details: "Please kill #{Faker::FunnyName.three_word_name} and their friends! 😇 thaaaaaaanks ✌️🤪🫶",
+    deadline: Faker::Date.forward(days: 365),
+    user: user,
+    hitman: hitman,
+    location: Faker::Address.full_address,
+    status: 2,
+    target_number: rand(1..5)
+  ).save
+end
+
+# Generate Completed Jobs 1 target
 5.times do
   user = User.all.sample
   hitman = Hitman.all.sample
@@ -106,23 +175,22 @@ end
     user: user,
     hitman: hitman,
     location: Faker::Address.full_address,
-    price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2),
-    status: 2
+    status: 3
   ).save
 end
 
-# Generate Completed Jobs
-20.times do
+# 2-5 targets
+15.times do
   user = User.all.sample
   hitman = Hitman.all.sample
   Job.new(
-    details: "Please kill #{Faker::FunnyName.three_word_name}! 😇 thaaaaaaanks ✌️🤪🫶",
+    details: "Please kill #{Faker::FunnyName.three_word_name} and their friends! 😇 thaaaaaaanks ✌️🤪🫶",
     deadline: Faker::Date.forward(days: 365),
     user: user,
     hitman: hitman,
     location: Faker::Address.full_address,
-    price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2),
-    status: 3
+    status: 3,
+    target_number: rand(2..5)
   ).save
 end
 
