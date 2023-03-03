@@ -1,31 +1,23 @@
-.gradient-custom-3 {
-  /* fallback for old browsers */
-  background: #84fab0;
 
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5));
+.text-style {
+    font-family: 'Lacquer', cursive;
+}
 
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(132, 250, 176, 0.5), rgba(143, 211, 244, 0.5))
-  }
-  .gradient-custom-4 {
-  /* fallback for old browsers */
-  background: #84fab0;
+.background-pic {
+  background-image: asset-url("forestdark.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
 
-  /* Chrome 10-25, Safari 5.1-6 */
-  background: -webkit-linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1));
+.btn-outline-dark {
+  background-color: black;
+  color: white;
+  font-family: 'Lacquer', cursive;
+  border-radius: 5px;
+  gap: 200px;
+}
 
-  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgba(132, 250, 176, 1), rgba(143, 211, 244, 1))
-  }
-
-  .text-style {
-      font-family: 'Lacquer', cursive;
-  }
-
-  .background-pic {
-    background-image: asset-url("forestdark.jpg");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
+.card-body {
+  background-color: linear-gradient(to right, #342F32, #939EB1);
+}

@@ -5,16 +5,16 @@
         <div class="col-12 col-md-9 col-lg-7 col-xl-6">
           <div class="card" style="border-radius: 15px;">
             <div class="card-body p-5">
-              <h2 class="text-uppercase text-center mb-5 text-style">Create an account</h2>
+              <h2 class="text-uppercase text-center mb-5 text-style">Log in</h2>
               <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
                 <div class="form-inputs">
-                <div class="form-outline mb-4">
+                <div class="form-outline mb-4 text-style">
                   <%= f.input :email,
                               required: false,
                               autofocus: true,
                               input_html: { autocomplete: "email", class:"form-control form-control-lg" } %>
                   </div>
-                  <div class="form-outline mb-4">
+                  <div class="form-outline mb-4 text-style">
                   <%= f.input :password,
                               required: false,
                               input_html: { autocomplete: "current-password", class:"form-control form-control-lg" } %>
@@ -22,11 +22,11 @@
                   </div>
                 </div>
 
-                <div class="form-actions d-flex justify-content-center"">
-                  <%= f.button :submit, "Log in", class:"btn btn-success btn-block btn-lg gradient-custom-4 text-body" %>
+                <div class="form-actions d-flex justify-content-center">
+                  <%= f.button :submit, "Login", class:"btn btn-outline-dark" %>
                 </div>
               <% end %>
-              <div class="mt-5 ">
+            <div class="mt-5">
                 <%= render "devise/shared/links" %>
               </div>
             </div>
