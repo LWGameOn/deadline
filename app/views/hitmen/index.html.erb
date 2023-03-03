@@ -1,5 +1,5 @@
 <div class="fw-bolder text-center pb-3 pt-3">
-<h1 class="main-title">Hitmen</h1>
+<h1 class="main-title pt-3 pb-3">Hitmen</h1>
 <!-- [Search] -->
 <div class="search mt-4 mb-4">
   <%= form_with url: hitmen_path, method: :get, class: "d-flex" do %>
@@ -9,10 +9,11 @@
           class: "form-control rounded",
           placeholder: "Search"
         %>
-        <%= submit_tag "Search", class:"btn btn-light"%>
+        <%= submit_tag "Search", class:"btn btn-light search-btn"%>
       </div>
   <% end %>
- </div>
+</div>
+<br></br>
 <!-- [...] -->
 
 <div class="row row-cols-1 row-cols-md-3 g-4 mx-5 container">
