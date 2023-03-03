@@ -15,10 +15,12 @@
                   <%= f.input :bio, as: :text %>
                   <%= f.input :location%>
                   <%= f.input :method %>
+                  <%= f.label :price, "Your asking price" %>
+                  <%= f.input :price, label: false %>
                   <%= f.input :photo, as: :file %>
                   </div>
                 </div>
-                
+
                 <div class="form-actions d-flex justify-content-center">
                   <%= f.submit "Create your profile", class:"btn btn-outline-dark" %>
                 </div>

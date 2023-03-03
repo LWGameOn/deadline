@@ -10,7 +10,7 @@
                   <div class="bod" style="width:750px;">
                     <h5 class="card-title fw-bold">from: <strong><%= job.user.email %></strong></h5>
                     <br>
-                    <p><i class="fa-solid fa-location-crosshairs"></i> <%= job.location %> &nbsp; <i class="fa-solid fa-money-bill"> &nbsp;</i><%= job.price %>€</p>
+                    <p><i class="fa-solid fa-location-crosshairs"></i> <%= job.location %> &nbsp; <i class="fa-solid fa-money-bill"> &nbsp;</i><%=job.hitman.price.zero? ? "Negotiable" : job.hitman.price * job.target_number %>€</p>
                     <p class="font-italic mb-0"> details: <%= job.details %></p>
                   </div>
                   <div class="btns">
