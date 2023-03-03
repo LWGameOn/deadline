@@ -2,7 +2,10 @@
     background: #4b4649;
     background: -webkit-linear-gradient(to right, rgb(57, 52, 55), rgb(147, 158, 177));
     background: linear-gradient(to right, rgb(52, 47, 50), rgba(147, 158, 177, 1));
-    // box-shadow: 0 10px 30px black;
+    box-shadow: 0 10px 30px black;
+    border-color: rgb(37, 36, 36);
+    border-bottom: 10px;
+    border-top: 0px;
   p {
     color: rgb(0, 0, 0);
     font-family: 'Lacquer', cursive;
@@ -14,12 +17,14 @@
   }
 }
 
-.card {
-  box-shadow: 0 10px 30px black;
-  border-color: rgb(37, 36, 36);
-  border-radius: 5px;
-}
-
 .text-white {
   color: white;
 }
+
+.hitman-img {
+  border-bottom: 0px;
+  border-top: 10px;
+  box-shadow: 0 10px 30px black;
+  border-color: black;
+}
+
