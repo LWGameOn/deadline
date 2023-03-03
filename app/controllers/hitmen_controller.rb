@@ -13,6 +13,7 @@ class HitmenController < ApplicationController
 
   def new
     @hitman = Hitman.new
+    @form = true
   end
 
   def create
