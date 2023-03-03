@@ -8,7 +8,7 @@ class Hitman < ApplicationRecord
   include PgSearch::Model
 
   pg_search_scope :search_by_location_and_method,
-    against: [ :location, :method ],
+    against: [ :location, :method, :name ],
     using: {
       tsearch: { prefix: true }
     }

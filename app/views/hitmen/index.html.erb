@@ -7,7 +7,7 @@
         <%= text_field_tag :query,
           params[:query],
           class: "form-control rounded",
-          placeholder: "Search location or method"
+          placeholder: "Search"
         %>
         <%= submit_tag "Search", class:"btn btn-light"%>
       </div>
@@ -15,7 +15,7 @@
  </div>
 <!-- [...] -->
 
-<div class="row row-cols-1 row-cols-md-3 g-4 mx-5">
+<div class="row row-cols-1 row-cols-md-3 g-4 mx-5 container">
     <% @hitmen.each do |hitman| %>
     <%= link_to hitman_path(hitman), class:"text-decoration-none" do %>
     <div class="col mb-4"  style="width:300px;">
