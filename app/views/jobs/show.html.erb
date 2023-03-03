@@ -28,7 +28,8 @@
                 <p class="font-italic mb-1"><i class="fa-solid fa-location-crosshairs"></i> <%=@job.location%></p>
                 <p class="font-italic mb-1"><i class="fa-regular fa-calendar-days"></i> <%= @job.deadline %></p>
                 <p class="font-italic mb-1"><i class="fa-solid fa-face-dizzy"></i> <%= @job.target_number %></p>
-                <p class="font-italic mb-1"><i class="fa-solid fa-dollar-sign"></i> <%= @hitman.price * @job.target_number%></p>
+                <p class="font-italic mb-1"><i class="fa-solid fa-dollar-sign"></i> <%= "#{@job.hitman.price} * #{@job.target_number}"%>
+                <br><%= "= $#{@job.hitman.price * @job.target_number}"%></p>
                 <p class="font-italic mb-1">Name of hitman: <%=@job.hitman.name%></p>
                 <p class="font-italic mb-1"> Details: <%= @job.details %></p>
               </div>
