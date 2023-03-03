@@ -7,6 +7,7 @@
     <%= link_to "Create a profile", new_hitman_path, class:"btn btn-dark" %>
   <% end %>
   </div>
+  <% unless @hitman.nil? %>
   <div class="container p-3" id="filter">
   <h1 class="main-title py-3" style="text-align:center;">Your jobs</h2>
     <div class="filter d-flex" style="margin-left:280px;">
@@ -23,6 +24,7 @@
     <h4 class="main-title" style="text-align:center; padding-top: 20px;">Nothing here ...</h4>
   <% end %>
   </div>
+  <% end %>
   <div class="container p-3">
     <% if @requests.any? %>
       <%= render "partial/your_requests" %>
