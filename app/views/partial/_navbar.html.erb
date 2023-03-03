@@ -9,10 +9,12 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto">
-            <% if user_signed_in? %>
+            <% if user_signed_in? && Hitman.find_by(user: current_user) == nil %>
               <li class="nav-item active">
                 <%= link_to "Create hitman profile", new_hitman_path, class:"nav-link" %>
               </li>
+            <% end %>
+            <% if user_signed_in? %>
               <li class="nav-item active">
                 <%= link_to "Home", hitmen_path, class:"nav-link" %>
               </li>
