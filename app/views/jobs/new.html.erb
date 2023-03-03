@@ -4,8 +4,6 @@
   <%= f.input :deadline, as: :date, html5: true %>
   <%= f.input :details, as: :text %>
   <%= f.input :location %>
-  <%= f.input :price %>
-  <br>
-  <br>
-  <%= f.submit "Add job", class: "btn btn-primary" %>
+  <%= f.input :target_number, as: :numeric %>
+  <%= f.submit "Add job", class: "btn btn-dark" %>
 <% end %>

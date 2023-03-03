@@ -2,12 +2,16 @@
 
 <%= simple_form_for [@hitman] do |f| %>
   <%= f.input :name %>
-  <%= f.input :bio, as: :text %>
-  <%= f.input :location %>
-  <%= f.input :method %>
-  <%= f.input :photo, as: :file %>
-  <br>
-  <br>
+  <%= f.label :bio, 'Tell us about yourself' %>
+  <%= f.input :bio, as: :text, label: false %>
+  <%= f.label :location, 'Operating area' %>
+  <%= f.input :location, label: false %>
+  <%= f.label :method, 'Preferred kill style' %>
+  <%= f.input :method, label: false %>
+  <%= f.label :price, 'Your asking price' %>
+  <%= f.input :price, as: :decimal, label: false %>
+  <%= f.label :photo, 'Your mugshot' %>
+  <%= f.input :photo, as: :file, label: false %>
   <%= f.submit "Create your profile", class: "btn btn-dark" %>
 <% end %>
 <br>
