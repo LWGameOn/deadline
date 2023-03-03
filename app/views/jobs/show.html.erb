@@ -28,9 +28,12 @@
                 <p class="font-italic mb-1"><i class="fa-solid fa-location-crosshairs"></i> <%=@job.location%></p>
                 <p class="font-italic mb-1"><i class="fa-regular fa-calendar-days"></i> <%= @job.deadline %></p>
                 <p class="font-italic mb-1"><i class="fa-solid fa-face-dizzy"></i> <%= @job.target_number %></p>
-                <p class="font-italic mb-1"><i class="fa-solid fa-dollar-sign"></i> <%= "#{@job.hitman.price} * #{@job.target_number}"%>
-                <br><%= "= $#{@job.hitman.price * @job.target_number}"%></p>
-                <p class="font-italic mb-1">Name of hitman: <%=@job.hitman.name%></p>
+                <% if @job.hitman.price.zero? %>
+                  <p class="font-italic mb-1"><i class="fa-solid fa-dollar-sign"></i> Negotiable</p>
+                <% else %>
+                  <p class="font-italic mb-1"><i class="fa-solid fa-dollar-sign"></i> <%= "#{@job.hitman.price} * #{@job.target_number}"%>
+                  <br><%= "= $#{@job.hitman.price * @job.target_number}"%></p>
+                <% end %>
                 <p class="font-italic mb-1"> Details: <%= @job.details %></p>
               </div>
             </div>
@@ -40,7 +43,7 @@
               <p class="lead fw-normal mb-1">About your hitman</p>
               <div class="p-4" style="background-color: #f8f9fa;">
                 <p class="font-italic mb-1"> Bio: <%= @job.hitman.bio %></p>
-                <p class="font-italic mb-0">Method: <%= @job.hitman.method %></p>
+                <p class="font-italic mb-0">Favourite Kill Style: <%= @job.hitman.method %></p>
               </div>
             </div>
           </div>

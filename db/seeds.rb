@@ -1,5 +1,10 @@
 require 'faker'
 require 'open-uri'
+
+Job.destroy_all
+Hitman.destroy_all
+User.destroy_all
+
 # Generate Users
 40.times do
   User.new(email: Faker::Internet.email, password: "deadline1312").save
@@ -47,37 +52,37 @@ url = ["https://www.wkbn.com/wp-content/uploads/sites/48/2023/02/joshua-vigorito
 
 # Generate Users that have a hitman
 methods = ["Strangle", "Poison", "Close & Personal", "Sniper", "\"Accident\""]
-
+i = 0
 # Hitmen with prices
 10.times do
   User.new(email: Faker::Internet.email, password: "deadline1312").save
-  Hitman.new(
+  image = URI.open(url[i])
+  hitman = Hitman.new(
     user: User.last,
     method: methods.sample,
     name: Faker::TvShows::RuPaul.queen,
     location: Faker::Address.community,
     bio: Faker::TvShows::Community.quotes,
     price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2)
-  ).save
+  )
+  hitman.photo.attach(io: image, filename: "hitman.jpg", content_type: "image/jpg")
+  hitman.save
+  i += 1
 end
 
 # Hitmen without Prices
 5.times do
   User.new(email: Faker::Internet.email, password: "deadline1312").save
-  Hitman.new(
+  image = URI.open(url[i])
+  hitman = Hitman.new(
     user: User.last,
     method: methods.sample,
     name: Faker::TvShows::RuPaul.queen,
     location: Faker::Address.community,
     bio: Faker::TvShows::Community.quotes
-  ).save
-end
-
-i = 0
-15.times do
-  image = URI.open(url[i])
-  hitman = Hitman.find(i+1)
+  )
   hitman.photo.attach(io: image, filename: "hitman.jpg", content_type: "image/jpg")
+  hitman.save
   i += 1
 end
 
