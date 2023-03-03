@@ -23,8 +23,8 @@
         <%= cl_image_tag(hitman.photo.key, height: 260, width: 260, crop: :fill, class:"card-img-top hitman-img") if hitman.photo.key %>
         <div class="card-body">
           <h5 class="card-title fw-bold"><%= hitman.name %></h5>
-          <p class="card-text"><%= hitman.location %></p>
-          <%# <p class="fst-italic"> <%= link_to "Visit hitman's profile", hitman, class: 'text-decoration-none text-white' %> </p>
+          <p class="card-text"> <i class="fa-solid fa-location-crosshairs"></i> <%= hitman.location %></p>
+          <p class="card-text"> <i class="fa-solid fa-dollar-sign"></i> <%= hitman.price? ? hitman.price : "Negotiable" %></p>
         </div>
       </div>
     </div>
