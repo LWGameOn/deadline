@@ -1,9 +1,9 @@
 require 'faker'
 require 'open-uri'
 
-Job.destroy_all
-Hitman.destroy_all
-User.destroy_all
+# Job.destroy_all
+# Hitman.destroy_all
+# User.destroy_all
 
 # Generate Users
 40.times do
