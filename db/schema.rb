@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_03_093800) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_03_095345) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -66,6 +66,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_03_093800) do
     t.bigint "user_id", null: false
     t.bigint "hitman_id", null: false
     t.integer "status", default: 0
+    t.integer "target_number", default: 1
     t.index ["hitman_id"], name: "index_jobs_on_hitman_id"
     t.index ["user_id"], name: "index_jobs_on_user_id"
   end

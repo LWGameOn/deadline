@@ -81,8 +81,8 @@ i = 0
   i += 1
 end
 
-# Generate Pending Jobs
-20.times do
+# Generate Pending Jobs with 1 target
+7.times do
   user = User.all.sample
   hitman = Hitman.all.sample
   Job.new(
@@ -94,8 +94,22 @@ end
   ).save
 end
 
-# Generate Uncompleted Accepted Jobs
-20.times do
+# Generate Pending Jobs with between 2 and 5 targets
+13.times do
+  user = User.all.sample
+  hitman = Hitman.all.sample
+  Job.new(
+    details: "Please kill #{Faker::FunnyName.three_word_name}! 😇 thaaaaaaanks ✌️🤪🫶",
+    deadline: Faker::Date.forward(days: 365),
+    user: user,
+    hitman: hitman,
+    location: Faker::Address.full_address,
+    target_number: rand(2..5)
+  ).save
+end
+
+# Generate Uncompleted Accepted Jobs 1 target
+10.times do
   user = User.all.sample
   hitman = Hitman.all.sample
   Job.new(
@@ -108,21 +122,7 @@ end
   ).save
 end
 
-# Generate Denied Jobs
-5.times do
-  user = User.all.sample
-  hitman = Hitman.all.sample
-  Job.new(
-    details: "Please kill #{Faker::FunnyName.three_word_name}! 😇 thaaaaaaanks ✌️🤪🫶",
-    deadline: Faker::Date.forward(days: 365),
-    user: user,
-    hitman: hitman,
-    location: Faker::Address.full_address,
-    status: 2
-  ).save
-end
-
-# Generate Completed Jobs
+# 2-5 targets
 20.times do
   user = User.all.sample
   hitman = Hitman.all.sample
@@ -132,7 +132,52 @@ end
     user: user,
     hitman: hitman,
     location: Faker::Address.full_address,
+    status: 1,
+    target_number: rand(2..5)
+  ).save
+end
+
+# Generate Denied Jobs 1-5 targets
+5.times do
+  user = User.all.sample
+  hitman = Hitman.all.sample
+  Job.new(
+    details: "Please kill #{Faker::FunnyName.three_word_name}! 😇 thaaaaaaanks ✌️🤪🫶",
+    deadline: Faker::Date.forward(days: 365),
+    user: user,
+    hitman: hitman,
+    location: Faker::Address.full_address,
+    status: 2,
+    target_number: rand(1..5)
+  ).save
+end
+
+# Generate Completed Jobs 1 target
+5.times do
+  user = User.all.sample
+  hitman = Hitman.all.sample
+  Job.new(
+    details: "Please kill #{Faker::FunnyName.three_word_name}! 😇 thaaaaaaanks ✌️🤪🫶",
+    deadline: Faker::Date.forward(days: 365),
+    user: user,
+    hitman: hitman,
+    location: Faker::Address.full_address,
     status: 3
+  ).save
+end
+
+# 2-5 targets
+15.times do
+  user = User.all.sample
+  hitman = Hitman.all.sample
+  Job.new(
+    details: "Please kill #{Faker::FunnyName.three_word_name}! 😇 thaaaaaaanks ✌️🤪🫶",
+    deadline: Faker::Date.forward(days: 365),
+    user: user,
+    hitman: hitman,
+    location: Faker::Address.full_address,
+    status: 3,
+    target_number: rand(2..5)
   ).save
 end
 
