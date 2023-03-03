@@ -71,7 +71,7 @@ class JobsController < ApplicationController
   private
 
   def job_params
-    params.require(:job).permit(:deadline, :details, :location, :price)
+    params.require(:job).permit(:deadline, :details, :location, :price, :target_number)
   end
 
   def set_hitman

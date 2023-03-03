@@ -27,7 +27,9 @@
               <div class="p-4" style="background-color: #f8f9fa;">
                 <p class="font-italic mb-1"><i class="fa-solid fa-location-crosshairs"></i> <%=@job.location%></p>
                 <p class="font-italic mb-1"><i class="fa-regular fa-calendar-days"></i> <%= @job.deadline %></p>
-                <p class="font-italic mb-1"><i class="fa-solid fa-dollar-sign"></i> <%= @job.price? ? @job.price : "Yet to be decided"%></p>
+                <p class="font-italic mb-1"><i class="fa-solid fa-face-dizzy"></i> <%= @job.target_number %></p>
+                <p class="font-italic mb-1"><i class="fa-solid fa-dollar-sign"></i> <%= "#{@job.hitman.price} * #{@job.target_number}"%>
+                <br><%= "= $#{@job.hitman.price * @job.target_number}"%></p>
                 <p class="font-italic mb-1">Name of hitman: <%=@job.hitman.name%></p>
                 <p class="font-italic mb-1"> Details: <%= @job.details %></p>
               </div>
