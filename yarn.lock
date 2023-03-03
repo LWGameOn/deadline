@@ -65,6 +65,11 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@ng-nice/mdbootstrap@^4.4.101":
+  version "4.4.101"
+  resolved "https://registry.yarnpkg.com/@ng-nice/mdbootstrap/-/mdbootstrap-4.4.101.tgz#4db542f62ff01aaf5bbe80e7106e33d8ecd554af"
+  integrity sha512-09EALZ8tq+dfwN7b4LYyR/Qo36t0I34RHQe09oOfd7jL7o3MzloY9oCZa/7c9DqN/JvXFC24yw7HpAJudSVJZQ==
+
 "@popperjs/core@^2.11.6":
   version "2.11.6"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.6.tgz#cee20bd55e68a1720bdab363ecf0c821ded4cd45"

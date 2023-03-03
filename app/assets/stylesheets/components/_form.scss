@@ -1,0 +1,23 @@
+
+.text-style {
+    font-family: 'Lacquer', cursive;
+}
+
+.background-pic {
+  background-image: asset-url("forestdark.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.btn-outline-dark {
+  background-color: black;
+  color: white;
+  font-family: 'Lacquer', cursive;
+  border-radius: 5px;
+  gap: 200px;
+}
+
+.card-body {
+  background-color: linear-gradient(to right, #342F32, #939EB1);
+}
