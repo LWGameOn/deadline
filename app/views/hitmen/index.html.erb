@@ -24,7 +24,7 @@
         <div class="card-body">
           <h5 class="card-title fw-bold"><%= hitman.name %></h5>
           <p class="card-text"> <i class="fa-solid fa-location-crosshairs"></i> <%= hitman.location %></p>
-          <p class="card-text"> <i class="fa-solid fa-dollar-sign"></i> <%= hitman.price? ? hitman.price : "Negotiable" %></p>
+          <p class="card-text"> <i class="fa-solid fa-dollar-sign"></i> <%= hitman.price != 0 ? hitman.price : "Negotiable" %></p>
         </div>
       </div>
     </div>
