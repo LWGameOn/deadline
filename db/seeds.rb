@@ -48,7 +48,21 @@ url = ["https://www.wkbn.com/wp-content/uploads/sites/48/2023/02/joshua-vigorito
 # Generate Users that have a hitman
 methods = ["Strangle", "Poison", "Close & Personal", "Sniper", "\"Accident\""]
 
-15.times do
+# Hitmen with prices
+10.times do
+  User.new(email: Faker::Internet.email, password: "deadline1312").save
+  Hitman.new(
+    user: User.last,
+    method: methods.sample,
+    name: Faker::TvShows::RuPaul.queen,
+    location: Faker::Address.community,
+    bio: Faker::TvShows::Community.quotes,
+    price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2)
+  ).save
+end
+
+# Hitmen without Prices
+5.times do
   User.new(email: Faker::Internet.email, password: "deadline1312").save
   Hitman.new(
     user: User.last,
@@ -76,8 +90,7 @@ end
     deadline: Faker::Date.forward(days: 365),
     user: user,
     hitman: hitman,
-    location: Faker::Address.full_address,
-    price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2),
+    location: Faker::Address.full_address
   ).save
 end
 
@@ -91,7 +104,6 @@ end
     user: user,
     hitman: hitman,
     location: Faker::Address.full_address,
-    price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2),
     status: 1
   ).save
 end
@@ -106,7 +118,6 @@ end
     user: user,
     hitman: hitman,
     location: Faker::Address.full_address,
-    price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2),
     status: 2
   ).save
 end
@@ -121,7 +132,6 @@ end
     user: user,
     hitman: hitman,
     location: Faker::Address.full_address,
-    price: Faker::Number.between(from: 1000.0, to: 1000000.0).floor(2),
     status: 3
   ).save
 end
