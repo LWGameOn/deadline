@@ -99,7 +99,7 @@ end
   user = User.all.sample
   hitman = Hitman.all.sample
   Job.new(
-    details: "Please kill #{Faker::FunnyName.three_word_name}! 😇 thaaaaaaanks ✌️🤪🫶",
+    details: "Please kill #{Faker::FunnyName.three_word_name} and their friends! 😇 thaaaaaaanks ✌️🤪🫶",
     deadline: Faker::Date.forward(days: 365),
     user: user,
     hitman: hitman,
@@ -127,7 +127,7 @@ end
   user = User.all.sample
   hitman = Hitman.all.sample
   Job.new(
-    details: "Please kill #{Faker::FunnyName.three_word_name}! 😇 thaaaaaaanks ✌️🤪🫶",
+    details: "Please kill #{Faker::FunnyName.three_word_name} and their friends! 😇 thaaaaaaanks ✌️🤪🫶",
     deadline: Faker::Date.forward(days: 365),
     user: user,
     hitman: hitman,
@@ -137,12 +137,25 @@ end
   ).save
 end
 
-# Generate Denied Jobs 1-5 targets
-5.times do
+2.times do
   user = User.all.sample
   hitman = Hitman.all.sample
   Job.new(
     details: "Please kill #{Faker::FunnyName.three_word_name}! 😇 thaaaaaaanks ✌️🤪🫶",
+    deadline: Faker::Date.forward(days: 365),
+    user: user,
+    hitman: hitman,
+    location: Faker::Address.full_address,
+    status: 2
+  ).save
+end
+
+# Generate Denied Jobs 1-5 targets
+3.times do
+  user = User.all.sample
+  hitman = Hitman.all.sample
+  Job.new(
+    details: "Please kill #{Faker::FunnyName.three_word_name} and their friends! 😇 thaaaaaaanks ✌️🤪🫶",
     deadline: Faker::Date.forward(days: 365),
     user: user,
     hitman: hitman,
@@ -171,7 +184,7 @@ end
   user = User.all.sample
   hitman = Hitman.all.sample
   Job.new(
-    details: "Please kill #{Faker::FunnyName.three_word_name}! 😇 thaaaaaaanks ✌️🤪🫶",
+    details: "Please kill #{Faker::FunnyName.three_word_name} and their friends! 😇 thaaaaaaanks ✌️🤪🫶",
     deadline: Faker::Date.forward(days: 365),
     user: user,
     hitman: hitman,
